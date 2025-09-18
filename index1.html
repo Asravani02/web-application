@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Shopping Store</title>
+  
+  <!-- Font Awesome CDN for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papb+N+XjiW3qlM5D44ZKvZ6yZSu9rJlr6WyQXJ2XfSLC5oXRaCqN4kg/3k8v9qQaRZZPm+4nDmyhUHHXvYtwQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    
+    /* Header */
+    header {
+      background-color: #2a9d8f;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+    }
+    header .cart {
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+    }
+    header .cart .badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #e76f51;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: #264653;
+      padding: 10px 30px;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+    }
+    nav .nav-item {
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    nav .nav-item:hover {
+      color: #e9c46a;
+    }
+    nav .nav-item i {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    /* Product Grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+    }
+    .product-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+    .product-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+    .product-details {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+      min-height: 48px;
+    }
+    .product-price {
+      font-size: 18px;
+      color: #e76f51;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .add-to-cart-btn {
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      padding: 10px 0;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #21867a;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #264653;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ShopEase</h1>
+    <div class="cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="badge" id="cart-count">3</span>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-item" title="Electronics">
+      <i class="fas fa-tv"></i>
+      Electronics
+    </div>
+    <div class="nav-item" title="Clothing">
+      <i class="fas fa-tshirt"></i>
+      Clothing
+    </div>
+    <div class="nav-item" title="Home Appliances">
+      <i class="fas fa-blender"></i>
+      Home
+    </div>
+    <div class="nav-item" title="Books">
+      <i class="fas fa-book"></i>
+      Books
+    </div>
+    <div class="nav-item" title="Sports">
+      <i class="fas fa-basketball-ball"></i>
+      Sports
+    </div>
+  </nav>
+  
+  <section class="products">
+    <div class="product-card">
+      <img
+        class="product-image"
+        src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80"
+        alt="Wireless Headphones"
+      />
+      <div class="product-details">
+        <h2 class="product-title">Wireless Headphones</h2>
+        <div class="product-price">$59.99</div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img
+        class="product-image"
+        src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80"
+        alt="Casual T-Shirt"
+      />
+      <div class="product-details">
+        <h2 class="product-title">Casual T-Shirt</h2>
+        <div class="product-price">$19.99</div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img
+        class="product-image"
+        src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=600&q=80"
+        alt="Blender"
+      />
+      <div class="product-details">
+        <h2 class="product-title">Kitchen Blender</h2>
+        <div class="product-price">$49.99</div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img
+        class="product-image"
+        src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80"
+        alt="Hardcover Book"
+      />
+      <div class="product-details">
+        <h2 class="product-title">The Great Novel</h2>
+        <div class="product-price">$12.99</div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img
+        class="product-image"
+        src="https://www.bing.com/th/id/OIP.5xugiL_b22AqWLXHqcH9zQHaKX?w=160&h=211&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.3&pid=3.1&rm=2auto=format&fit=crop&w=600&q=80"
+        alt="Basketball"
+      />
+      <div class="product-details">
+        <h2 class="product-title">Basketball</h2>
+        <div class="product-price">$29.99</div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    &copy; 2025 ShopEase - Your Online Shopping Destination
+  </footer>
+</body>
+</html>
